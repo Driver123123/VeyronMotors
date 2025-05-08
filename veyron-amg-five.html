@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veyron AMG FIVE | В наличии</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    .dropdown {
+      display: inline-block;
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #222;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+      z-index: 10;
+      border-radius: 8px;
+      padding: 10px 0;
+    }
+
+    .dropdown-content a {
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #333;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .content {
+      padding-top: 80px; /* Чтобы контент не скрывался под меню */
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff2b2b;
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111;
+      color: #888;
+      clear: both;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- МЕНЮ -->
+  <nav>
+    <a href="../index.html">Главная</a>
+
+    <div class="dropdown">
+      <span>Модели</span>
+      <div class="dropdown-content">
+        <a href="../models/veyron-amg-five.html">Veyron AMG FIVE</a>
+        <a href="../models/veyron-q3.html">Veyron Q-3</a>
+        <a href="../models/veyron-orion-series.html">Veyron Orion Series</a>
+        <a href="../models/veyron-rs-x.html">Veyron RS-X</a>
+        <a href="../models/veyron-terra-x.html">Veyron Terra X</a>
+        <a href="../models/veyron-q3-negr-edition.html">Veyron Q-3 Negr Edition</a>
+      </div>
+    </div>
+
+    <a href="../cars-in-stock.html">В наличии</a>
+
+    <div class="dropdown">
+      <span>Покупателям</span>
+      <div class="dropdown-content">
+        <a href="#">Тест-драйв</a>
+        <a href="#">Автокредит</a>
+        <a href="#">Спецпредложения</a>
+        <a href="#">Трейд-ин</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <span>Владельцам</span>
+      <div class="dropdown-content">
+        <a href="#">Гарантия</a>
+        <a href="#">Помощь на дорогах</a>
+        <a href="#">Клиентская поддержка</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <span>О компании</span>
+      <div class="dropdown-content">
+        <a href="#">История</a>
+        <a href="#">Производство</a>
+        <a href="#">Инновации</a>
+        <a href="#">Дизайн</a>
+        <a href="#">Публикации</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- КОНТЕНТ -->
+  <div class="content">
+
+    <h1>Veyron AMG FIVE</h1>
+    <p>Флагманский гранд-турер с мощностью 1200 л.с., гибридным двигателем и футуристичным дизайном.</p>
+    <p>Производится в Москве и Шанхае. Подходит для тех, кто ценит технологии завтрашнего дня уже сегодня.</p>
+
+    <!-- QR-КОД -->
+    <div class="qr-code">
+      <img src="../models/assets/photos/qr_code_veyron_motors.png" alt="QR-код Veyron Motors">
+      <p style="margin-top: 10px;">Отсканируйте QR-код для дополнительной информации</p>
+    </div>
+
+  </div>
+
+  <!-- ФУТЕР -->
+  <footer>
+    &copy; 2025 Veyron Motors. Все права защищены.
+  </footer>
+
+</body>
+</html>
