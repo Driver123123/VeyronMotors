@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Забронировать тест-драйв | Veyron Motors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .content {
+      padding-top: 80px;
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff2b2b;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #1c1c1c;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: #fff;
+    }
+
+    button {
+      background-color: #004d00;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #006400;
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- МЕНЮ -->
+  <nav>
+    <a href="../index.html">Главная</a>
+
+    <div class="dropdown">
+      <span>Модели</span>
+      <div class="dropdown-content">
+        <a href="../models/veyron-amg-five.html">Veyron AMG FIVE</a>
+        <a href="../models/veyron-q3.html">Veyron Q-3</a>
+        <a href="../models/veyron-orion-series.html">Veyron Orion Series</a>
+        <a href="../models/veyron-rs-x.html">Veyron RS-X</a>
+        <a href="../models/veyron-terra-x.html">Veyron Terra X</a>
+        <a href="../models/veyron-q3-negr-edition.html">Veyron Q-3 Negr Edition</a>
+      </div>
+    </div>
+
+    <a href="../cars-in-stock.html">В наличии</a>
+    <a href="../for-buyers.html">Покупателям</a>
+    <a href="../for-owners.html">Владельцам</a>
+    <a href="../about-veyron-motors.html">О бренде</a>
+  </nav>
+
+  <!-- КОНТЕНТ -->
+  <div class="content">
+    <h1>🚗 Забронируй тест-драйв прямо сейчас</h1>
+
+    <p>Выбери автомобиль и место поближе к тебе:</p>
+
+    <!-- ФОРМА ТЕСТ-ДРАЙВ -->
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Ваше имя" required />
+      <input type="email" name="email" placeholder="Email или телефон" required />
+      <input type="tel" name="phone" placeholder="Номер телефона" />
+
+      <select name="model" required>
+        <option value="">Выберите модель</option>
+        <option value="amg-five">AMG FIVE</option>
+        <option value="q3">Q-3</option>
+        <option value="orion">Orion Series</option>
+        <option value="rs-x">RS-X</option>
+        <option value="terra-x">Terra X</option>
+        <option value="q3-negr">Q-3 Negr Edition</option>
+      </select>
+
+      <select name="city" required>
+        <option value="">Выберите город</option>
+        <option value="moscow">Москва</option>
+        <option value="lugansk">Луганск</option>
+        <option value="shanghai">Шанхай</option>
+        <option value="maripol">Мариуполь</option>
+        <option value="rostov">Ростов</option>
+      </select>
+
+      <button type="submit">Забронировать</button>
+    </form>
+
+    <!-- QR-КОД -->
+    <div class="qr-code">
+      <img src="../models/assets/photos/qr_code_veyron_motors.png" alt="QR-код Veyron Motors">
+      <p style="margin-top: 10px;">Отсканируйте QR-код для дополнительной информации</p>
+    </div>
+
+  </div>
+
+  <!-- ФУТЕР -->
+  <footer>
+    &copy; 2025 Veyron Motors. Все права защищены.
+  </footer>
+
+</body>
+</html>

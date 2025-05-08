@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Модельный ряд Veyron Motors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    .content {
+      padding-top: 80px; /* Чтобы контент не скрывался под меню */
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .model-card {
+      background: #1c1c1c;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .model-card:hover {
+      transform: scale(1.02);
+    }
+
+    .model-card h2 {
+      color: #ff2b2b;
+      margin-top: 0;
+    }
+
+    .model-card p {
+      margin: 10px 0;
+    }
+
+    .model-card a {
+      display: block;
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .model-card a:hover {
+      text-decoration: underline;
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111;
+      color: #888;
+      clear: both;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- МЕНЮ -->
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="models.html">Модели</a>
+    <a href="cars-in-stock.html">В наличии</a>
+    <a href="for-buyers.html">Покупателям</a>
+    <a href="for-owners.html">Владельцам</a>
+    <a href="about-veyron-motors.html">О бренде</a>
+  </nav>
+
+  <!-- КОНТЕНТ -->
+  <div class="content">
+
+    <h1>Наши модели</h1>
+    <p>Выберите автомобиль, чтобы узнать больше.</p>
+
+    <!-- Список моделей -->
+    <div class="model-card">
+      <h2>Veyron AMG FIVE</h2>
+      <p>Флагманский гранд-турер с мощностью 1200 л.с., гибридным двигателем и футуристичным дизайном.</p>
+      <a href="models/veyron-amg-five.html">Подробнее →</a>
+    </div>
+
+    <div class="model-card">
+      <h2>Veyron Q-3</h2>
+      <p>Компактный кроссовер премиум-класса. Идеальный баланс между городским комфортом и внедорожными возможностями.</p>
+      <a href="models/veyron-q3.html">Подробнее →</a>
+    </div>
+
+    <div class="model-card">
+      <h2>Veyron Orion Series</h2>
+      <p>Бюджетная линейка автомобилей с футуристичным дизайном и продвинутой электроникой.</p>
+      <a href="models/veyron-orion-series.html">Подробнее →</a>
+    </div>
+
+    <div class="model-card">
+      <h2>Veyron RS-X</h2>
+      <p>Спорткар нового поколения с турбированным двигателем и аэродинамическим кузовом для трека и города.</p>
+      <a href="models/veyron-rs-x.html">Подробнее →</a>
+    </div>
+
+    <div class="model-card">
+      <h2>Veyron Terra X</h2>
+      <p>Полноприводный внедорожник с увеличенным дорожным просветом и системами помощи водителю.</p>
+      <a href="models/veyron-terra-x.html">Подробнее →</a>
+    </div>
+
+    <div class="model-card">
+      <h2>Veyron Q-3 Negr Edition</h2>
+      <p>Ограниченная серия компактного кроссовера Q-3 с чёрной отделкой и спортивными акцентами.</p>
+      <a href="models/veyron-q3-negr-edition.html">Подробнее →</a>
+    </div>
+
+    <!-- QR-КОД ВНИЗУ -->
+    <div class="qr-code">
+      <img src="models/assets/photos/qr_code_veyron_motors.png" alt="QR-код Veyron Motors">
+      <p>Отсканируйте QR-код для дополнительной информации</p>
+    </div>
+
+  </div>
+
+  <!-- ФУТЕР -->
+  <footer>
+    &copy; 2025 Veyron Motors. Все права защищены.
+  </footer>
+
+</body>
+</html>

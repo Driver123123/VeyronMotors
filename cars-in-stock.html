@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Автомобили в наличии | Veyron Motors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    .content {
+      padding-top: 80px; /* Чтобы контент не скрывался под меню */
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ff2b2b;
+    }
+
+    .stock-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .car-card {
+      background: #1c1c1c;
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: scale(1.02);
+    }
+
+    .car-card h2 {
+      color: #00ffff;
+      margin-top: 0;
+    }
+
+    .car-card a {
+      display: block;
+      color: #00ffff;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .car-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- МЕНЮ -->
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="models.html">Модели</a>
+    <a href="cars-in-stock.html">В наличии</a>
+    <a href="for-buyers.html">Покупателям</a>
+    <a href="for-owners.html">Владельцам</a>
+    <a href="about-veyron-motors.html">О бренде</a>
+  </nav>
+
+  <!-- ЗАГОЛОВОК -->
+  <div class="content">
+
+    <h1>🚗 Автомобили в наличии</h1>
+
+    <!-- Список машин -->
+    <div class="stock-list">
+
+      <div class="car-card">
+        <h2>Veyron AMG FIVE</h2>
+        <p><strong>Статус:</strong> В продаже</p>
+        <p><strong>Доступно:</strong> 2 шт (в Москве и Шанхае)</p>
+        <a href="in-stock/veyron-amg-five.html">Подробнее →</a>
+      </div>
+
+      <div class="car-card">
+        <h2>Veyron Q-3</h2>
+        <p><strong>Статус:</strong> Ожидается поставка</p>
+        <p><strong>Дата поступления:</strong> Через 1 месяц</p>
+        <a href="in-stock/veyron-q3.html">Подробнее →</a>
+      </div>
+
+      <div class="car-card">
+        <h2>Veyron Orion Series</h2>
+        <p><strong>Статус:</strong> Производство</p>
+        <p><strong>Дата запуска:</strong> 2026 год</p>
+        <a href="in-stock/veyron-orion-series.html">Подробнее →</a>
+      </div>
+
+      <div class="car-card">
+        <h2>Veyron Q-3 Negr Edition</h2>
+        <p><strong>Статус:</strong> Производство</p>
+        <p><strong>Дата запуска:</strong> 2026</p>
+        <a href="in-stock/veyron-q3-negr-edition.html">Подробнее →</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ФУТЕР -->
+  <footer>
+    &copy; 2025 Veyron Motors. Все права защищены.
+  </footer>
+
+</body>
+</html>

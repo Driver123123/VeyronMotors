@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Конфигуратор Veyron Motors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .content {
+      padding-top: 80px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    select, input[type="text"] {
+      display: block;
+      margin: 15px auto;
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: none;
+      background: #222;
+      color: #fff;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #004d00;
+      color: #fff;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 400px;
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+  </style>
+
+  <!-- Подключение Model Viewer -->
+  <script type="module" src="https://unpkg.com/ @google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+
+  <!-- МЕНЮ -->
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="models.html">Модели</a>
+    <a href="test-drive.html">Тест-драйв</a>
+  </nav>
+
+  <!-- КОНТЕНТ -->
+  <div class="content">
+
+    <h1>🚗 Конфигуратор с 3D-просмотром</h1>
+    <p>Выберите модель, цвет и комплектацию ниже:</p>
+
+    <!-- Форма выбора -->
+    <label for="model-select">Модель:</label>
+    <select id="model-select" onchange="updateModel()">
+      <option value="amg-five">Veyron AMG FIVE</option>
+      <option value="q3">Veyron Q-3</option>
+      <option value="rs-x">Veyron RS-X</option>
+      <option value="terra-x">Veyron Terra X</option>
+    </select>
+
+    <label for="color-select">Цвет кузова:</label>
+    <select id="color-select" onchange="updateColor()">
+      <option value="black">Чёрный</option>
+      <option value="white">Белый</option>
+      <option value="red">Красный</option>
+      <option value="carbon">Карбон</option>
+    </select>
+
+    <button onclick="start3D()">Посмотреть 3D</button>
+
+    <!-- 3D-ПРОСМОТР -->
+    <div id="3d-container" style="display: none; margin-top: 30px;">
+      <h2 id="selected-model-title">Вы выбрали: AMG FIVE</h2>
+
+      <model-viewer 
+        id="modelViewer"
+        alt="3D автомобиль Veyron Motors"
+        camera-controls
+        auto-rotate
+        ar
+        src=""
+        poster="" 
+        shadow-intensity="1"
+        exposure="1"
+        environment-image="neutral"
+        style="width: 100%; height: 400px;"
+      >
+      </model-viewer>
+    </div>
+
+  </div>
+
+  <!-- ФУТЕР -->
+  <footer style="text-align: center; padding: 30px; background: #111; color: #888;">
+    &copy; 2025 Veyron Motors. Все права защищены.
+  </footer>
+
+  <script>
+    const viewer = document.getElementById('modelViewer');
+    const selectedTitle = document.getElementById('selected-model-title');
+
+    let models = {
+      "amg-five": {
+        black: "models/veyron-amg-five_black.glb",
+        white: "models/veyron-amg-five_white.glb",
+        red: "models/veyron-amg-five_red.glb",
+        carbon: "models/veyron-amg-five_carbon.glb"
+      },
+      "q3": {
+        black: "models/veyron-q3_black.glb",
+        white: "models/veyron-q3_white.glb",
+        red: "models/veyron-q3_red.glb",
+        carbon: "models/veyron-q3_carbon.glb"
+      },
+      "rs-x": {
+        black: "models/veyron-rs-x_black.glb",
+        white: "models/veyron-rs-x_white.glb",
+        red: "models/veyron-rs-x_red.glb",
+        carbon: "models/veyron-rs-x_carbon.glb"
+      },
+      "terra-x": {
+        black: "models/veyron-terra-x_black.glb",
+        white: "models/veyron-terra-x_white.glb",
+        red: "models/veyron-terra-x_red.glb",
+        carbon: "models/veyron-terra-x_carbon.glb"
+      }
+    };
+
+    let currentModel = "amg-five";
+    let currentColor = "black";
+
+    function updateModel() {
+      currentModel = document.getElementById("model-select").value;
+      currentColor = document.getElementById("color-select").value;
+      selectedTitle.innerText = "Вы выбрали: " + currentModel.toUpperCase();
+      viewer.src = models[currentModel][currentColor];
+    }
+
+    function updateColor() {
+      currentColor = document.getElementById("color-select").value;
+      viewer.src = models[currentModel][currentColor];
+    }
+
+    // Загрузка начальной модели
+    window.onload = () => {
+      viewer.src = models["amg-five"]["black"];
+    };
+  </script>
+
+</body>
+</html>  

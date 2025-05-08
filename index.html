@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Veyron Motors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Подключение Model Viewer -->
+  <script type="module" src="https://unpkg.com/ @google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: all 0.5s ease;
+    }
+
+    nav {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    .content {
+      padding-top: 80px; /* Чтобы контент не скрывался под меню */
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    header img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin: 40px auto 20px;
+    }
+
+    .intro p {
+      line-height: 1.6;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+
+    .btn-green {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #004d00;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111;
+      color: #888;
+    }
+
+    /* Соцсети справа сверху */
+    .socials-panel {
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      z-index: 11;
+      background: #004d00;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .socials-panel a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color: #f5f5f5;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    /* Переключатель фона */
+    .theme-switcher {
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      z-index: 11;
+      background: #004d00;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .theme-switcher select {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Конфигуратор */
+    .configurator {
+      margin-top: 60px;
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: 60px auto;
+      text-align: left;
+    }
+
+    .configurator h2 {
+      text-align: center;
+      color: #ff2b2b;
+      margin-bottom: 20px;
+    }
+
+    .configurator label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    .configurator select,
+    .configurator input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background: #333;
+      color: #fff;
+      font-size: 1em;
+    }
+
+    .configurator button {
+      margin-top: 20px;
+      padding: 15px 25px;
+      background-color: #004d00;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      background: #2a2a2a;
+      border-radius: 10px;
+      color: #ccc;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 400px;
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- МЕНЮ -->
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="models.html">Модели</a>
+    <a href="cars-in-stock.html">В наличии</a>
+    <a href="for-buyers.html">Покупателям</a>
+    <a href="for-owners.html">Владельцам</a>
+    <a href="about-veyron-motors.html">О бренде</a>
+  </nav>
+
+  <!-- ПЕРЕКЛЮЧАТЕЛЬ ЦВЕТА -->
+  <div class="theme-switcher">
+    <select id="bg-select" onchange="changeBackground()">
+      <option value="#0a0a0a">Темная</option>
+      <option value="#ffffff">Светлая</option>
+      <option value="#e0e0e0">Светло-серая</option>
+    </select>
+  </div>
+
+  <!-- БЛОК СОЦСЕТЕЙ -->
+  <div class="socials-panel">
+    <a href="https://vk.com/veyronmotors " target="_blank">
+      <img src="models/assets/photos/vk_icon.png" alt="Vkontakte" class="social-icon">Vkontakte
+    </a>
+    <a href="https://t.me/veyronmotors " target="_blank">
+      <img src="models/assets/photos/tg_icon.png" alt="Telegram" class="social-icon">Telegram
+    </a>
+    <a href="https://youtube.com/ @veyronmotors" target="_blank">
+      <img src="models/assets/photos/youtube_icon.png" alt="YouTube" class="social-icon">YouTube
+    </a>
+    <a href="https://rutube.ru/channel/veyronmotors " target="_blank">
+      <img src="models/assets/photos/rutube_icon.png" alt="Rutube" class="social-icon">Rutube
+    </a>
+    <a href="https://x.com/veyronmotors " target="_blank">
+      <img src="models/assets/photos/x_icon.png" alt="X / Twitter" class="social-icon">Twitter
+    </a>
+  </div>
+
+  <!-- КОНТЕНТ -->
+  <div class="content">
+
+    <header>
+      <img src="models/assets/photos/logo_veyron_motors.png" alt="Veyron Motors Logo">
+    </header>
+
+    <!-- ТЕКСТ -->
+    <section class="intro">
+      <p>
+        Veyron Motors — это технология завтрашнего дня, воплощенная сегодня.
+        Мы создаём машины, которые задают тренд, устанавливают стандарты и вызывают восхищение.
+      </p>
+    </section>
+
+    <!-- КНОПКА -->
+    <a href="models.html" class="btn-green">Подробнее о моделях...</a>
+
+    <!-- КОНФИГУРАТОР -->
+    <section class="configurator">
+      <h2>🚗 Онлайн-конфигуратор авто</h2>
+
+      <label for="model-select">Выберите модель:</label>
+      <select id="model-select" onchange="updateModel()">
+        <option value="amg-five">Veyron AMG FIVE</option>
+        <option value="q3">Veyron Q-3</option>
+        <option value="rs-x">Veyron RS-X</option>
+        <option value="terra-x">Veyron Terra X</option>
+        <option value="negred">Veyron Q-3 Negr Edition</option>
+        <option value="orion">Veyron Orion Series</option>
+      </select>
+
+      <label for="color-select">Цвет кузова:</label>
+      <select id="color-select" onchange="updateModel()">
+        <option value="black">Чёрный</option>
+        <option value="white">Белый</option>
+        <option value="carbon">Карбон</option>
+      </select>
+
+      <button onclick="showConfig()">Подтвердить выбор</button>
+
+      <div id="config-result" class="result"></div>
+    </section>
+
+    <!-- 3D-ПРОСМОТР -->
+    <div style="margin-top: 40px;">
+      <h2>3D-просмотр</h2>
+      <iframe 
+        id="3d-model"
+        src=""
+        width="100%" 
+        height="400" 
+        frameborder="0" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- QR-КОД -->
+    <div class="qr-code">
+      <img src="models/assets/photos/qr_code_veyron_motors.png" alt="QR-код Veyron Motors">
+      <p>Отсканируйте QR-код для дополнительной информации</p>
+    </div>
+
+  </div>
+
+  <!-- ФУТЕР -->
+  <footer>
+    &copy; 2025 Veyron Motors. Все права защищены.
+  </footer>
+
+  <!-- JS для смены фона -->
+  <script>
+    function changeBackground() {
+      const selectedColor = document.getElementById("bg-select").value;
+      document.body.style.background = selectedColor;
+
+      if (selectedColor === "#ffffff" || selectedColor === "#e0e0e0") {
+        document.body.style.color = "#000";
+        const links = document.querySelectorAll("nav a");
+        links.forEach(link => link.style.color = "#000");
+
+        const btns = document.querySelectorAll(".btn-green, .configurator button");
+        btns.forEach(btn => {
+          btn.style.background = "#004d00";
+          btn.style.color = "#fff";
+        });
+      } else {
+        document.body.style.color = "#fff";
+        const links = document.querySelectorAll("nav a");
+        links.forEach(link => link.style.color = "#fff");
+
+        const btns = document.querySelectorAll(".btn-green, .configurator button");
+        btns.forEach(btn => {
+          btn.style.background = "#004d00";
+          btn.style.color = "#fff";
+        });
+      }
+
+      localStorage.setItem('bg-color', selectedColor);
+    }
+
+    window.onload = () => {
+      const savedColor = localStorage.getItem('bg-color') || '#0a0a0a';
+      document.getElementById("bg-select").value = savedColor;
+      document.body.style.background = savedColor;
+
+      if (savedColor === "#ffffff" || savedColor === "#e0e0e0") {
+        document.body.style.color = "#000";
+        const links = document.querySelectorAll("nav a");
+        links.forEach(link => link.style.color = "#000");
+
+        const btns = document.querySelectorAll(".btn-green, .configurator button");
+        btns.forEach(btn => {
+          btn.style.background = "#004d00";
+          btn.style.color = "#fff";
+        });
+      } else {
+        document.body.style.color = "#fff";
+        const links = document.querySelectorAll("nav a");
+        links.forEach(link => link.style.color = "#fff");
+
+        const btns = document.querySelectorAll(".btn-green, .configurator button");
+        btns.forEach(btn => {
+          btn.style.background = "#004d00";
+          btn.style.color = "#fff";
+        });
+      }
+    };
+
+    // JS для конфигуратора
+    const modelLinks = {
+      "amg-five": {
+        black: "https://app.stagecraft.studio/models/veyron-amg-five_black.glb ",
+        white: "https://skfb.ly/pwQsI ",
+        carbon: "https://app.stagecraft.studio/models/veyron-amg-five_carbon.glb "
+      },
+      "q3": {
+        black: "https://app.stagecraft.studio/models/q3_black.glb ",
+        white: "https://app.stagecraft.studio/models/q3_white.glb ",
+        carbon: "https://app.stagecraft.studio/models/q3_carbon.glb "
+      },
+      "rs-x": {
+        black: "https://app.stagecraft.studio/models/rs-x_black.glb ",
+        white: "https://app.stagecraft.studio/models/rs-x_white.glb ",
+        carbon: "https://app.stagecraft.studio/models/rs-x_carbon.glb "
+      },
+      "terra-x": {
+        black: "https://app.stagecraft.studio/models/terra-x_black.glb ",
+        white: "https://app.stagecraft.studio/models/terra-x_white.glb ",
+        carbon: "https://app.stagecraft.studio/models/terra-x_carbon.glb "
+      },
+      "negred": {
+        black: "https://app.stagecraft.studio/models/negred_black.glb ",
+        white: "https://app.stagecraft.studio/models/negred_white.glb ",
+        carbon: "https://app.stagecraft.studio/models/negred_carbon.glb "
+      },
+      "orion": {
+        black: "https://app.stagecraft.studio/models/orion_black.glb ",
+        white: "https://app.stagecraft.studio/models/orion_white.glb ",
+        carbon: "https://app.stagecraft.studio/models/orion_carbon.glb "
+      }
+    };
+
+    function updateModel() {
+      const model = document.getElementById("model-select").value;
+      const color = document.getElementById("color-select").value;
+      const glbPath = modelLinks[model][color];
+
+      // Меняем iframe на правильную ссылку
+      const viewer = document.getElementById("3d-model");
+      viewer.src = glbPath;
+    }
+
+    function showConfig() {
+      const model = document.getElementById("model-select").value;
+      const color = document.getElementById("color-select").value;
+
+      const resultDiv = document.getElementById("config-result");
+      resultDiv.innerHTML = `
+        <strong>Вы выбрали:</strong><br>
+        Модель: ${model}<br>
+        Цвет: ${color}
+      `;
+    }
+  </script>
+
+</body>
+</html>
